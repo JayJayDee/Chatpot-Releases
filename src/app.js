@@ -1,9 +1,10 @@
 const initConfig = require('./configurations');
-const { initFactory } = require('./factory');
+const { initFactory, endpointsRunner } = require('./factory');
 
 (async () => {
-  const { mysql, http } = initConfig(process.env);
-  await initFactory({ mysql, http });
+  const { mysqlConf, httpConf } = initConfig(process.env);
+  await initFactory({ mysqlConf, httpConf });
 
-  
+  const runEndpoints = endpointsRunner();
+  runEndpoints();
 })();

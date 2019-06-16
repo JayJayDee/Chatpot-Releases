@@ -13,8 +13,8 @@ module.exports = (source) => {
 
   const read = valueReader(source);
   return {
-    mysql: mysqlConfig({ read }),
-    http: httpConfig({ read })
+    mysqlConf: mysqlConfig({ read }),
+    httpConf: httpConfig({ read })
   }
 };
 

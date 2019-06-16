@@ -3,7 +3,7 @@ const index = {
   method: 'get',
   handlers: [
     (req, res) => {
-      console.log(req.uri);
+      console.log(req.url);
       res.status(200).json({});
     }
   ]

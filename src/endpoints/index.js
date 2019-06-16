@@ -3,8 +3,9 @@ const express = require('express');
 
 const tag = '[endpoint-runner]';
 
-const endpoints = ({ log, httpConf }) => 
-  () => {
+const endpoints = ({ log, httpConf }) => {
+  log.debug(`${tag} endpoint dependencies injected`);
+  return () => {
     const app = express();
     const endpoints = [ index ];
 
@@ -17,5 +18,6 @@ const endpoints = ({ log, httpConf }) =>
     app.listen(httpConf.port);
     log.info(`${tag} http server started with port:${httpConf.port}`);
   };
+};
 
 module.exports = endpoints;
