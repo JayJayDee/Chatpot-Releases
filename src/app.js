@@ -1,7 +1,9 @@
-const { initConfig } = require('./configurations');
+const initConfig = require('./configurations');
 const { initFactory } = require('./factory');
 
 (async () => {
-  initConfig(process.env);
-  await initFactory();
+  const { mysql, http } = initConfig(process.env);
+  await initFactory({ mysql, http });
+
+  
 })();
