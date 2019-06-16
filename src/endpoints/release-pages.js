@@ -6,8 +6,9 @@ const releasePages = ({ releaseStore }) =>
     handlers: [
       async (req, res) => {
         const rows = await releaseStore.fetchAllReleases();
-        console.log(rows);
-        res.status(200).json({});
+        res.status(200).render('index', {
+          releases: rows
+        });
       }
     ]
   }
