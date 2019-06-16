@@ -18,7 +18,14 @@ or you can run application with environment variables. for example:
 $ HTTP_PORT=8080 MYSQL_HOST=192.168.0.17 ... npm run start
 ```
 
-## Configuration format
+## Example configuration
+save following contents to `$HOME/chatpot-release-page.env`
 ```bash
-
+MYSQL_HOST=127.0.0.1
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_DATABASE=chatpot_dev_release
+MYSQL_CONNECTION_LIMIT=10
+HTTP_PORT=3000
 ```
