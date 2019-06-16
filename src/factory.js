@@ -1,7 +1,7 @@
 const initMysql = require('./mysql');
 const initLogger = require('./logger');
 const createRunner = require('./endpoints-runner');
-const { createReleasePages } = require('./endpoints');
+const { createReleasePages, createJenkinsApis } = require('./endpoints');
 const { releaseStoreMysql } = require('./release-store');
 
 const instances = {};
@@ -16,8 +16,10 @@ const initFactory = async ({ mysqlConf, httpConf }) => {
 
   // initialize endpoints
   const releasePages = createReleasePages({ releaseStore });
+  const jenkinsApis = createJenkinsApis({ releaseStore });
   const endpoints = [
-    ...releasePages
+    ...releasePages,
+    ...jenkinsApis
   ];
 
   // initialize endpoints-runner
