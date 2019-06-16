@@ -1,4 +1,4 @@
-module.exports = ({ log, mysql }) => ({
+module.exports = ({ mysql }) => ({
 
   async fetchAllReleases() {
     const sql = `
@@ -13,7 +13,6 @@ module.exports = ({ log, mysql }) => ({
       ORDER BY
         no DESC
     `;
-    log.debug('test');
     return await mysql.query(sql);
   }
 });

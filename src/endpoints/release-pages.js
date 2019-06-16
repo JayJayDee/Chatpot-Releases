@@ -1,12 +1,16 @@
-const index = {
-  uri: '/',
-  method: 'get',
-  handlers: [
-    (req, res) => {
-      console.log(req.url);
-      res.status(200).json({});
-    }
-  ]
-}
+const releasePages = ({ releaseStore }) => 
+[
+  {
+    uri: '/',
+    method: 'get',
+    handlers: [
+      async (req, res) => {
+        const rows = await releaseStore.fetchAllReleases();
+        console.log(rows);
+        res.status(200).json({});
+      }
+    ]
+  }
+];
 
-module.exports = { index };
+module.exports = releasePages;

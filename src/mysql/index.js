@@ -25,7 +25,8 @@ const helper = (pool) => ({
     let connection = null;
     try {
       connection = await pool.getConnection();
-      return await connection.query(sql, params);
+      const [ rows ] = await connection.query(sql, params);
+      return rows;
     } finally {
       connection.release();
     }

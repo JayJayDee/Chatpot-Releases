@@ -1,6 +1,7 @@
 const initMysql = require('./mysql');
 const initLogger = require('./logger');
-const endpoints = require('./endpoints');
+const createRunner = require('./endpoints-runner');
+const { createReleasePages } = require('./endpoints');
 const { releaseStoreMysql } = require('./release-store');
 
 const instances = {};
@@ -11,15 +12,24 @@ const initFactory = async ({ mysqlConf, httpConf }) => {
   const mysql = await initMysql({ log, mysqlConf });
 
   // initialize dependencies for external services
-  instances['releaseStore'] = releaseStoreMysql({ log , mysql });
-  instances['endpoints'] = endpoints({ log, httpConf });
+  const releaseStore = releaseStoreMysql({ log , mysql });
+
+  // initialize endpoints
+  const releasePages = createReleasePages({ releaseStore });
+  const endpoints = [
+    ...releasePages
+  ];
+
+  // initialize endpoints-runner
+  const runner = createRunner({ log, httpConf, endpoints });
+
+  // initialize outsize-factory variables
+  instances['runner'] = runner;
 };
 
-const releaseStore = () => instances['releaseStore'];
-const endpointsRunner = () => instances['endpoints'];
+const endpointsRunner = () => instances['runner'];
 
 module.exports = {
   initFactory,
-  endpointsRunner,
-  releaseStore
+  endpointsRunner
 };
