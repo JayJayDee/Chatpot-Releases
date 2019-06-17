@@ -1,6 +1,6 @@
 const apiBase = '/api';
 
-const jenkinsApis = ({ releaseStore }) => 
+const jenkinsApis = ({ releaseStore, multerMiddleware, jenkinsApiMiddleware }) => 
 [
   // returns recent version.
   {
@@ -10,6 +10,20 @@ const jenkinsApis = ({ releaseStore }) =>
       async (req, res) => {
         console.log(releaseStore);
         res.status(200).send(1);
+      }
+    ]
+  },
+
+  // uploads recent version
+  {
+    uri: `${apiBase}/upload`,
+    method: 'post',
+    handlers: [
+      jenkinsApiMiddleware,
+      multerMiddleware.single('apk_file'),
+      async (req, res) => {
+        // TODO: to be implemented
+        res.status(200).json({});
       }
     ]
   }

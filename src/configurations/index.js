@@ -14,7 +14,8 @@ module.exports = (source) => {
   const read = valueReader(source);
   return {
     mysqlConf: mysqlConfig({ read }),
-    httpConf: httpConfig({ read })
+    httpConf: httpConfig({ read }),
+    authConf: authConfig({ read })
   }
 };
 
@@ -40,5 +41,11 @@ const mysqlConfig = ({ read }) => ({
 });
 
 const httpConfig = ({ read }) => ({
-  port: read('HTTP_PORT', { required })
+  port: read('HTTP_PORT', { required }),
+  uploadPath: read('HTTP_UPLOAD_PATH', { required })
+});
+
+const authConfig = ({ read }) => ({
+  enabled: read('AUTH_ENABLED', { required: false }) === 'true' ? true : false,
+  allowHost: read('AUTH_ALLOW_HOST', { required: false })
 });
