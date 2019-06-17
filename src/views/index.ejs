@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-sm">
     <h3>
-      Chatpot Development Builds
+      Development Builds
       <small class="text-muted">for android devices</small>
     </h3>
     <p>The following builds are automatically built with CI. so it can contains some bugs. bug reportings are always welcome!</p>
@@ -10,7 +10,47 @@
 </div>
 <div class="row">
   <div class="col-sm">
+    <%if (releases.length === 0) { %>
+      No builds available.
+    <% } %>
 
+    <%if (releases.length > 0) { %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Version</th>
+          <th scope="col">Features</th>
+          <th scope="col">Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% releases.forEach(function(row){ %>
+          <tr>
+            <th scope="row"><%= row.no %></th>
+            <td><%= row.version %></td>
+            <td><%= row.feature.replace(/\r\n/g, '<br/>') %></td>
+            <td><a href="#">chatpot-dev-10283928.apk</a></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %>
   </div>
 </div>
+<div class="row">
+    <div class="col-sm">
+      <h3>
+        Development Builds
+        <small class="text-muted">for iOS devices</small>
+      </h3>
+      <p>Testing with iOS devices are available via TestFlight. send me a mail to apply as a tester!</p>
+      <p>Mail: jindongp@gmail.com</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+  
+    </div>
+  </div>
 <%- include('footer') %>
