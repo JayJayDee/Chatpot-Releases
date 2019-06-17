@@ -5,10 +5,8 @@ const releasePages = ({ releaseStore }) =>
     method: 'get',
     handlers: [
       async (req, res) => {
-        const rows = await releaseStore.fetchAllReleases();
-        res.status(200).render('index', {
-          releases: rows
-        });
+        const releases = await releaseStore.fetchAllReleases();
+        res.status(200).render('index', { releases });
       }
     ]
   }

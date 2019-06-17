@@ -10,6 +10,7 @@ const endpoints =
       const app = express();
       app.set('view engine', 'ejs');
       app.set('views', join(__dirname, '/views'));
+      app.use('/assets', express.static(join(__dirname, '..', 'assets')));
 
       endpoints.forEach((e) => {
         if (e.method === 'get') app.get(e.uri, e.handlers);
