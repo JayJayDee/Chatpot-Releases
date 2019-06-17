@@ -9,6 +9,16 @@ const releasePages = ({ releaseStore }) =>
         res.status(200).render('index', { releases });
       }
     ]
+  },
+
+  {
+    uri: '/developer',
+    method: 'get',
+    handlers: [
+      async (req, res) => {
+        res.status(200).render('developer');
+      }
+    ]
   }
 ];
 
