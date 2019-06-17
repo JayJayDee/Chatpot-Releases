@@ -6,7 +6,8 @@ const releasePages = ({ releaseStore }) =>
     handlers: [
       async (req, res) => {
         const releases = await releaseStore.fetchAllReleases();
-        res.status(200).render('index', { releases });
+        const current = 'index';
+        res.status(200).render('index', { releases, current });
       }
     ]
   },
@@ -16,7 +17,19 @@ const releasePages = ({ releaseStore }) =>
     method: 'get',
     handlers: [
       async (req, res) => {
-        res.status(200).render('developer');
+        const current = 'developer';
+        res.status(200).render('developer', { current });
+      }
+    ]
+  },
+
+  {
+    uri: '/webapp',
+    method: 'get',
+    handlers: [
+      async (req, res) => {
+        const current = 'webapp';
+        res.status(200).render('webapp', { current });
       }
     ]
   }
