@@ -13,7 +13,7 @@ const initFactory = async ({ mysqlConf, httpConf, authConf }) => {
   const mysql = await initMysql({ log, mysqlConf });
 
   // initialize dependencies for external services
-  const releaseStore = releaseStoreMysql({ log , mysql });
+  const releaseStore = releaseStoreMysql({ log , mysql, httpConf });
 
   // initialize middlewares
   const multerMiddleware = createMulterMiddleware({ httpConf });

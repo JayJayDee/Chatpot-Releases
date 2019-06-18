@@ -42,7 +42,8 @@ const mysqlConfig = ({ read }) => ({
 
 const httpConfig = ({ read }) => ({
   port: read('HTTP_PORT', { required }),
-  uploadPath: read('HTTP_UPLOAD_PATH', { required })
+  uploadPath: read('HTTP_UPLOAD_PATH', { required }),
+  publicHost: read('HTTP_PUBLIC_HOST', { required })
 });
 
 const authConfig = ({ read }) => ({

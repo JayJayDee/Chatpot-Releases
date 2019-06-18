@@ -29,8 +29,8 @@
           <tr>
             <th scope="row"><%= row.no %></th>
             <td><%= row.version %></td>
-            <td><%= row.feature.replace(/\r\n/g, '<br/>') %></td>
-            <td><a href="#">chatpot-dev-10283928.apk</a></td>
+            <td><%= row.feature.replace(/\'/g, '') %></td>
+            <td><a href="<%= row.download_url %>"><%= row.file_name %></a></td>
           </tr>
         <% }) %>
       </tbody>
