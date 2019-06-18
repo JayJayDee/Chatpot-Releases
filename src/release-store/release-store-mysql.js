@@ -14,5 +14,19 @@ module.exports = ({ mysql }) => ({
         no DESC
     `;
     return await mysql.query(sql);
+  },
+
+  async insertNewRelease({ version, feature, file_name }) {
+    const sql = `
+      INSERT INTO
+        dev_release
+      SET
+        version=?,
+        feature=?,
+        file_name=?,
+        reg_date=NOW()
+    `;
+    const params = [ version, feature, file_name ];
+    await mysql.query(sql, params);
   }
 });

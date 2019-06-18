@@ -8,7 +8,6 @@ const jenkinsApis = ({ releaseStore, multerMiddleware, jenkinsApiMiddleware }) =
     method: 'get',
     handlers: [
       async (req, res) => {
-        console.log(releaseStore);
         res.status(200).send(1);
       }
     ]
@@ -22,7 +21,21 @@ const jenkinsApis = ({ releaseStore, multerMiddleware, jenkinsApiMiddleware }) =
       jenkinsApiMiddleware,
       multerMiddleware.single('apk_file'),
       async (req, res) => {
-        // TODO: to be implemented
+        if (!req.file) return res.status(400).send('FILE_REQUIRED');
+
+        const file_name = req.file.filename;
+        const version = req.body.version;
+        const feature = req.body.feature;
+
+        if (!version) return res.status(400).send('VERSION_REQUIRED');
+        if (!feature) return res.status(400).send('FEATURE_REQUIRED');
+
+        await releaseStore.insertNewRelease({
+          version,
+          file_name,
+          feature
+        });
+
         res.status(200).json({});
       }
     ]
