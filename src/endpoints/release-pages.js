@@ -32,6 +32,17 @@ const releasePages = ({ releaseStore }) =>
         res.status(200).render('webapp', { current });
       }
     ]
+  },
+
+  {
+    uri: '/privacy-policy',
+    method: 'get',
+    handlers: [
+      async (req, res) => {
+        const current = '';
+        res.status(200).render('privacy-policy', { current });
+      }
+    ]
   }
 ];
 
