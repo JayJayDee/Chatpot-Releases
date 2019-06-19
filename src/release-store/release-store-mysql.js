@@ -1,6 +1,7 @@
 module.exports = ({ mysql, httpConf }) => ({
 
-  async fetchAllReleases() {
+  async fetchAllReleases(limit = 7) {
+    if (!limit) limit = 7;
     const sql = `
       SELECT 
         no,
@@ -12,8 +13,9 @@ module.exports = ({ mysql, httpConf }) => ({
         dev_release
       ORDER BY
         no DESC
+      LIMIT ?
     `;
-    const rows = await mysql.query(sql);
+    const rows = await mysql.query(sql, [ limit ]);
     const converted = rows.map((r) => ({
       no: r.no,
       version: r.version,
