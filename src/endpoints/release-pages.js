@@ -43,6 +43,17 @@ const releasePages = ({ releaseStore }) =>
         res.status(200).render('privacy-policy', { current });
       }
     ]
+  },
+
+  {
+    uri: '/eula',
+    method: 'get',
+    handlers: [
+      async (req, res) => {
+        const current = '';
+        res.status(200).render('eula-en', { current });
+      }
+    ]
   }
 ];
 
