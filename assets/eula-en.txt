@@ -16,3 +16,6 @@ For each of the following items, the developer may restrict or stop using the se
 3) Has the purpose of infringing the intellectual property right or portrait rights of others
 4) Any commercial or commercial operation, directly or indirectly, without the developer's consent.
 5) Attempts to defame others.
+
+Article 3. Blocking and reporting malicious users
+Chatpot provides a way for you to block or report content uploaded by a malicious user. However, there will be disadvantages in the case of repeated reports of innocent users.
