@@ -1,0 +1,18 @@
+End User License Agreement (EULA)
+
+This End User License Agreement is the agreement / terms and conditions between you and Chatpot services for the software products specified above.
+This software product includes computer software and may include related media, printed materials and "online" or electronic documentation ("software products").
+You agree to the terms of this License Agreement upon installation, download, access or use of the Software Product.
+This Agreement shall be governed by and construed in accordance with the terms and conditions set forth by Chatpot services, as it is difficult to notify you in real time of any changes, modifications, Applies in the same way.
+
+Article 1. Names and Definitions of Services
+The name of this program is called "Chatpot services" (hereinafter referred to as "Chatpot"). The name of the developer is called JayJayDee (hereinafter referred to as "developer").
+Definition: A real-time conversation service between users served as web pages or applications for mobile devices.
+
+Article 2. Restrict use and suspension
+For each of the following items, the developer may restrict or stop using the service without prior notice.
+1) Making a hate speech in any chat room.
+2) Making a sexually harass in any chat room.
+3) Has the purpose of infringing the intellectual property right or portrait rights of others
+4) Any commercial or commercial operation, directly or indirectly, without the developer's consent.
+5) Attempts to defame others.
