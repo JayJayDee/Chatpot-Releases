@@ -30,7 +30,7 @@
             <th scope="row"><%= row.no %></th>
             <td><%= row.version %></td>
             <td><%= row.feature.replace(/\'/g, '') %></td>
-            <td><a href="<%= row.download_url %>"><%= row.file_name %></a></td>
+            <td><a href="<%= row.download_url %>">Download</a></td>
           </tr>
         <% }) %>
       </tbody>
