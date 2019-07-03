@@ -5,9 +5,20 @@ const releasePages = ({ releaseStore }) =>
     method: 'get',
     handlers: [
       async (req, res) => {
-        const releases = await releaseStore.fetchAllReleases();
         const current = 'index';
-        res.status(200).render('index', { releases, current });
+        res.status(200).render('index', { current });
+      }
+    ]
+  },
+
+  {
+    uri: '/releases',
+    method: 'get',
+    handlers: [
+      async (req, res) => {
+        const releases = await releaseStore.fetchAllReleases();
+        const current = 'releases';
+        res.status(200).render('releases', { releases, current });
       }
     ]
   },
